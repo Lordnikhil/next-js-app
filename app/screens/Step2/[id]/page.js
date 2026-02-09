@@ -1,16 +1,24 @@
 'use client'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useAppState } from './../../state/AppState'
-import BackButton from './../../components/BackButton'
-import ToggleGroup from './../../components/ToggleGroup'
+import { useAppState } from '../../../state/AppState'
+import BackButton from '../../../components/BackButton'
+import ToggleGroup from '../../../components/ToggleGroup'
+import { useParams } from 'next/navigation'
 
 export default function Step2() {
+  const params = useParams()
   const { state, update } = useAppState()
   const [models, setModels] = useState([])
 
+  const carMake = params.id.toLowerCase()
+
   useEffect(() => {
-    fetch('/api/toyota').then(r => r.json()).then(setModels)
+    update({ carMake })
+  }, [])
+
+  useEffect(() => {
+    fetch(`/api/${carMake}`).then(r => r.json()).then(setModels)
   }, [])
 
   return (

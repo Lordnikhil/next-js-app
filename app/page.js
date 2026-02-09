@@ -1,29 +1,21 @@
-'use client'
 
-import { useRouter } from 'next/navigation'
-import { useAppState } from './state/AppState'
+import Link from 'next/link'
+
 
 export default function Step1() {
-  const router = useRouter()
-  const { update } = useAppState()
+
 
   return (
     <div>
       <h2>Select Car Make</h2>
 
-      
-      <button onClick={() => {
-        update({ make: 'Toyota' })
-        router.push('/screens/Step2')
-      }}>
+      <Link href="/screens/Step2/Toyota">
         Toyota
-      </button>
-      <button onClick={() => {
-        update({ make: 'Kia' })
-        router.push('/screens/Step3')
-      }}>
+      </Link>
+      <br />
+      <Link href="/screens/Step2/Kia">
         Kia
-      </button>
+      </Link>
     </div>
   )
 }
