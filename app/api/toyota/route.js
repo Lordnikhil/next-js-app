@@ -1,4 +1,4 @@
-const DUMMY_DATA = ['Landcruiser', 'Innova', 'Fortuner']
+export const DUMMY_TOYOTA_DATA = ['Landcruiser', 'Innova', 'Fortuner']
 
 export async function GET() {
   const res = await fetch('https://api-toyota.com/models', {
@@ -9,5 +9,5 @@ export async function GET() {
   }).catch(() => null)
 
   // const data = await res.json()
-  return Response.json(DUMMY_DATA)
+  return Response.json(DUMMY_TOYOTA_DATA)
 }

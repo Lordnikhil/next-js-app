@@ -1,6 +1,5 @@
 import { AppStateProvider } from './state/AppState'
 
-
 export default function RootLayout({ children }) {
   return (
     <html>

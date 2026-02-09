@@ -1,6 +1,6 @@
 'use client'
-import BackButton from './../../components/BackButton'
-import { useAppState } from './../../state/AppState'
+import BackButton from '../../components/BackButton'
+import { useAppState } from '../../state/AppState'
 
 
 import Link from 'next/link'
@@ -12,7 +12,7 @@ export default function Step4() {
     <>
       <BackButton />
       <select
-        value={state.houseType || ''}
+        value={state.houseType}
         onChange={e => update({ houseType: e.target.value })}
       >
         <option value="">Select</option>
@@ -20,7 +20,7 @@ export default function Step4() {
         <option>Mortgage</option>
         <option>Rented</option>
       </select>
-      <Link href="/screens/Step5"><button>Next</button></Link>
+      <Link href="/screens/step-five"><button>Next</button></Link>
     </>
   )
 }

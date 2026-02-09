@@ -11,15 +11,13 @@ export default function Step2() {
   const { state, update } = useAppState()
   const [models, setModels] = useState([])
 
-  const carMake = params.id.toLowerCase()
+  useEffect(() => {
+    update({ carMake: params.id })
+  }, [params.id, update])
 
   useEffect(() => {
-    update({ carMake })
-  }, [])
-
-  useEffect(() => {
-    fetch(`/api/${carMake}`).then(r => r.json()).then(setModels)
-  }, [])
+    fetch(`/api/${params.id}`).then(r => r.json()).then(setModels)
+  }, [params.id])
 
   return (
     <>
@@ -29,7 +27,7 @@ export default function Step2() {
         value={state.model}
         onChange={model => update({ model })}
       />
-      <Link href="/screens/Step4"><button>Next</button></Link>
+      <Link href="/screens/step-four"><button>Next</button></Link>
     </>
   )
 }

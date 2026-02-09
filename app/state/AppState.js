@@ -1,12 +1,23 @@
 'use client'
-import { createContext, useContext, useState } from 'react'
+import { createContext, useCallback, useContext, useState } from 'react'
 
 const AppStateContext = createContext(null)
 
 export function AppStateProvider({ children }) {
-  const [state, setState] = useState({})
+  const [state, setState] = useState({
+    street: "",
+    city:"",
+    zip:"",
+    ssn:"",
+    state:"",
+    carMake: "",
+    model: "",
+    houseType: "",
+    fireAlarm: "",
+    bureauScore: null,
+  })
 
-  const update = updates => setState(prev => ({ ...prev, ...updates }))
+  const update = useCallback(updates => setState(prev => ({ ...prev, ...updates })), [])
 
   return (
     <AppStateContext.Provider value={{ state, update }}>

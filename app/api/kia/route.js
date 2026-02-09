@@ -1,6 +1,4 @@
-
-
-const DUMMY_DATA = ['Seltos', 'Carens', 'Sonet']
+export const DUMMY_KIA_DATA = ['Seltos', 'Carens', 'Sonet']
 
 export async function GET() {
   const res = await fetch('https://api-kia.com/models', {
@@ -11,5 +9,5 @@ export async function GET() {
   }).catch(() => null)
 
   // const data = await res.json()
-  return Response.json(DUMMY_DATA)
+  return Response.json(DUMMY_KIA_DATA)
 }
